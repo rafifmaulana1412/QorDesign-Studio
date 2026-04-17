@@ -12,6 +12,7 @@ const products = [
     title: "Solitude in Bloom",
     category: "Illustration",
     price: 5000000,
+    priceMax: 10000000,
     tag: "Popular",
     image: "/image/cewe-selfie.png",
     format: "PNG, PSD",
@@ -21,6 +22,7 @@ const products = [
     title: "Golden Hour Memories",
     category: "Illustration",
     price: 10000000,
+    priceMax: 20000000,
     tag: "New",
     image: "/image/cewe-selfie-lagi.png",
     format: "PNG, PSD",
@@ -30,6 +32,7 @@ const products = [
     title: "Nani Wartabone – Heritage Poster",
     category: "Graphic Design",
     price: 7000000,
+    priceMax: 14000000,
     tag: "New",
     image: "/image/nani-wartabone.png",
     format: "PNG, AI",
@@ -39,6 +42,7 @@ const products = [
     title: "Hero of Time – Full Character Sheet",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "Hot",
     image: "/image/design-karakter-1.png",
     format: "PNG, PSD",
@@ -48,6 +52,7 @@ const products = [
     title: "Ayah Laras – Character Sheet",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-2.png",
     format: "PNG, PSD",
@@ -57,6 +62,7 @@ const products = [
     title: "Amel – Original Character Sheet",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-3.png",
     format: "PNG, PSD",
@@ -66,6 +72,7 @@ const products = [
     title: "Laras – Character Concept",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-4.png",
     format: "PNG, PSD",
@@ -75,6 +82,7 @@ const products = [
     title: "Riko Street Style – Character Turnaround",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-5.png",
     format: "PNG, PSD",
@@ -84,6 +92,7 @@ const products = [
     title: "The Wanderer – Pose & Expression Pack",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "Popular",
     image: "/image/design-karakter-6.png",
     format: "PNG, PSD",
@@ -93,6 +102,7 @@ const products = [
     title: "Urban Explorer – Character Sheet",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-7.jpg",
     format: "JPG, PSD",
@@ -102,6 +112,7 @@ const products = [
     title: "Dusk Rider – Character Concept Art",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-8.png",
     format: "PNG, PSD",
@@ -111,6 +122,7 @@ const products = [
     title: "Phantom Coat – Character Design",
     category: "Character Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/design-karakter-9.png",
     format: "PNG, PSD",
@@ -120,6 +132,7 @@ const products = [
     title: "Quiet Afternoon – Pose Reference",
     category: "Illustration",
     price: 10000000,
+    priceMax: 20000000,
     tag: "New",
     image: "/image/orang-duduk.png",
     format: "PNG",
@@ -129,6 +142,7 @@ const products = [
     title: "Plastik Mu Racun Ku – Campaign Poster",
     category: "Graphic Design",
     price: 7000000,
+    priceMax: 14000000,
     tag: "Hot",
     image: "/image/plastik-mu-racun-ku.png",
     format: "PNG, AI",
@@ -138,6 +152,7 @@ const products = [
     title: "Iron Sentinel – Robot Concept Art",
     category: "Illustration",
     price: 8000000,
+    priceMax: 16000000,
     tag: "Popular",
     image: "/image/robot.png",
     format: "PNG, PSD",
@@ -147,6 +162,7 @@ const products = [
     title: "Asta Showroom – Promotional Banner",
     category: "Graphic Design",
     price: 1000000,
+    priceMax: 2000000,
     tag: "New",
     image: "/image/banner.png",
     format: "PNG, AI",
@@ -156,6 +172,7 @@ const products = [
     title: "QorDesign Studio – Brand Identity Pack",
     category: "Branding",
     price: 2000000,
+    priceMax: 4000000,
     tag: "Popular",
     image: "/image/logo.png",
     format: "PNG, SVG, AI",
@@ -184,8 +201,8 @@ function formatPrice(price: number) {
   }).format(price);
 }
 
-function formatPriceRange(price: number) {
-  return `${formatPrice(price)} - ${formatPrice(price * 2)}`;
+function formatPriceRange(price: number, maxPrice?: number) {
+  return `${formatPrice(price)} - ${formatPrice(maxPrice ?? price * 2)}`;
 }
 
 export default function FeaturedProducts() {
@@ -292,7 +309,7 @@ export default function FeaturedProducts() {
 
                 <div className="flex items-center justify-between">
                   <div className="text-yellow-400 font-bold text-sm">
-                    {formatPriceRange(product.price)}
+                    {formatPriceRange(product.price, product.priceMax)}
                   </div>
                   <button
                     onClick={() => handleAdd(product)}
