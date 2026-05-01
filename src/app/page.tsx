@@ -1,15 +1,27 @@
+"use client";
+
+import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import CategoriesSection from "@/components/CategoriesSection";
+import FeaturedProducts from "@/components/FeaturedProducts";
+import ServicesSection from "@/components/ServicesSection";
+import AboutSection from "@/components/AboutSection";
+import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-      flexDirection: "column",
-      fontFamily: "sans-serif"
-    }}>
-      <h1>Website Disabled</h1>
-      <p>Mohon selesaikan pembayaran untuk mengaktifkan kembali layanan.</p>
-    </div>
+    <>
+      <CustomCursor />
+      <Navbar />
+      <main>
+        <HeroSection />
+        <CategoriesSection />
+        <FeaturedProducts />
+        <ServicesSection />
+        <AboutSection />
+      </main>
+      <Footer />
+    </>
   );
 }
